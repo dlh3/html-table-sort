@@ -20,7 +20,15 @@ for (j = 0; j < tableHeaders.length; ++j) {
     nodeArray.sort(function(a, b) {
       a = a.querySelectorAll('td').item(index);
       b = b.querySelectorAll('td').item(index);
-      return a.innerHTML == b.innerHTML ? 0 : (a.innerHTML > b.innerHTML ? 1 : -1);
+      sort = (a.innerHTML == b.innerHTML) ? 0 : (a.innerHTML > b.innerHTML ? 1 : -1);
+
+			a = parseInt(a);
+			b = parseInt(b);
+			if (a != 'NaN' and a == b){
+				sort = (a == b) ? 0 : (a > b ? 1 : -1);
+			}
+
+			return sort;
     });
 
     if (!sortAsc) {
